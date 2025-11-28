@@ -1,8 +1,12 @@
 Dunzo Failure Analytics Dashboard (2018–2025)
 Post-Mortem Analysis of Quick Commerce Collapse
+
+
+
 📌 Project Objective
 
 Conduct a comprehensive failure analysis of Dunzo’s decline between 2018–2025—focusing on operational performance, financial health, customer churn, workforce challenges, and competitor takeover—to uncover key reasons behind the shutdown and extract insights for sustainable quick-commerce business models.
+
 
 🎯 Business Objectives
 
@@ -17,6 +21,7 @@ Understand customer churn patterns & market share loss
 Benchmark performance against competitors
 
 Derive lessons for future quick commerce businesses
+
 
 📂 Dataset Sources
 
