@@ -60,7 +60,7 @@ Conduct a comprehensive post-mortem analysis of Dunzo's collapse (2018-2025) acr
 ![EDA Visual 2](images/eda_visual_2.png)
 
 ### 🖼 EDA Visual 3 — Market Share Comparison
-![EDA Visual 3](images/eda_visual_3.png)
+![EDA Visual 3](image 1.png)
 
 ---
 
