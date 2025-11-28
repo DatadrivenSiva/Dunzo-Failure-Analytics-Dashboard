@@ -1,0 +1,123 @@
+Project Title:  Dunzo Failure Analysis Dashboard
+Tools Used: MySQL
+
+1.Year-wise Revenue, Expenses & Profit/Loss
+SELECT
+  year,
+  SUM(revenue_cr)     AS total_revenue_cr,
+  SUM(expenses_cr)    AS total_expenses_cr,
+  SUM(loss_cr)        AS total_loss_cr
+FROM financials
+GROUP BY year
+ORDER BY year;
+Output:
+ 
+
+
+2.Month with Highest Orders Revenue
+WITH max_rev AS (
+  SELECT MAX(revenue_cr) AS m FROM financials
+)
+SELECT year, month, revenue_cr
+FROM financials
+WHERE revenue_cr = (SELECT m FROM max_rev);
+Output:
+ 
+
+3.Category-wise Revenue Contribution
+SELECT
+  category,
+  SUM(category_revenue_cr) AS total_category_revenue_cr,
+  ROUND(SUM(category_revenue_cr) * 100.0 / SUM(SUM(category_revenue_cr)) OVER (), 2) AS pct_of_total
+FROM financials
+GROUP BY category
+ORDER BY total_category_revenue_cr DESC;
+Output:
+ 
+
+
+4.Profit Margin % Per Year
+Profit margin = (Revenue - Expenses) / Revenue * 100
+SELECT
+  year,
+  ROUND((SUM(revenue_cr) - SUM(expenses_cr)) / NULLIF(SUM(revenue_cr), 0) * 100, 2) AS profit_margin_pct
+FROM financials
+GROUP BY year
+ORDER BY year;
+Output:
+ 
+
+
+5.CAC vs LTV Analysis (by Year)
+SELECT
+  year,
+  ROUND(AVG(cac_rs),2) AS avg_cac_rs,
+  ROUND(AVG(ltv_rs),2) AS avg_ltv_rs,
+  ROUND(AVG(ltv_rs) - AVG(cac_rs),2) AS ltv_minus_cac
+FROM financials
+GROUP BY year
+ORDER BY year;
+Output:
+ 
+
+
+6.Highest Cost Component by Month
+SELECT
+  year, month,
+  GREATEST(delivery_partner_cost, marketing_cost, tech_cost, operation_cost, packaging_cost) AS max_cost_value,
+  CASE
+    WHEN delivery_partner_cost = GREATEST(delivery_partner_cost, marketing_cost, tech_cost, operation_cost, packaging_cost) THEN 'delivery_partner_cost'
+    WHEN marketing_cost = GREATEST(delivery_partner_cost, marketing_cost, tech_cost, operation_cost, packaging_cost) THEN 'marketing_cost'
+    WHEN tech_cost = GREATEST(delivery_partner_cost, marketing_cost, tech_cost, operation_cost, packaging_cost) THEN 'tech_cost'
+    WHEN operation_cost = GREATEST(delivery_partner_cost, marketing_cost, tech_cost, operation_cost, packaging_cost) THEN 'operation_cost'
+    WHEN packaging_cost = GREATEST(delivery_partner_cost, marketing_cost, tech_cost, operation_cost, packaging_cost) THEN 'packaging_cost'
+  END AS max_cost_component
+FROM financials
+ORDER BY year, month;
+Output:
+ 
+
+
+7.YOY Revenue Growth
+Use window function LAG():
+SELECT
+  year,
+  SUM(revenue_cr) AS revenue_cr,
+  LAG(SUM(revenue_cr)) OVER (ORDER BY year) AS prev_year_revenue_cr,
+  ROUND(SUM(revenue_cr) - LAG(SUM(revenue_cr)) OVER (ORDER BY year), 4) AS revenue_growth_cr,
+  ROUND(
+    CASE WHEN LAG(SUM(revenue_cr)) OVER (ORDER BY year) IS NULL THEN NULL
+         WHEN LAG(SUM(revenue_cr)) OVER (ORDER BY year) = 0 THEN NULL
+         ELSE (SUM(revenue_cr) - LAG(SUM(revenue_cr)) OVER (ORDER BY year)) / LAG(SUM(revenue_cr)) OVER (ORDER BY year) * 100
+    END, 2) AS revenue_growth_pct
+FROM financials
+GROUP BY year
+ORDER BY year;
+Output:
+ 
+
+
+8.Customer Growth Trend (New vs Returning)
+SELECT
+  year,
+  SUM(First_Time_Customers)   AS new_customers,
+  SUM(Returning_Customers)    AS returning_customers,
+  SUM(Total_Orders)           AS total_orders
+FROM financials
+GROUP BY year
+ORDER BY year;
+Output:
+ 
+
+
+9.Market Share vs Competitors
+Summarize revenue (or orders) by competitor:
+SELECT
+  Competitor,
+  SUM(revenue_cr) AS competitor_revenue_cr,
+  ROUND(SUM(revenue_cr) * 100.0 / SUM(SUM(revenue_cr)) OVER (), 2) AS pct_market_share
+FROM financials
+GROUP BY Competitor
+ORDER BY competitor_revenue_cr DESC;
+Output:
+ 
