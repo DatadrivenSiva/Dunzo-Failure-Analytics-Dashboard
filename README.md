@@ -1,112 +1,114 @@
+# Dunzo Failure Analytics Dashboard 
+
+## 📌 Project Title
+
 Dunzo Failure Analytics Dashboard (2018–2025)
-Post-Mortem Analysis of Quick Commerce Collapse
+
+## 📄 Project Description
+
+An end-to-end post-mortem analytics project examining Dunzo’s collapse across operations, finance, workforce, customer behavior, and competitive landscape. The goal is to uncover exactly **why the company failed**, using data-driven evidence rather than opinions.
+
+## 🎯 Objective
+
+Identify Dunzo’s major failure points across:
+
+* Delivery operations
+* Financial health & burn rate
+* Unit economics
+* Workforce stability
+* Customer retention & behavior
+* Competition impact
+* Funding & cash runway breakdown
+
+## 📊 Dataset Details
+
+The project uses multi-year datasets (2018–2025):
+
+* Delivery performance metrics
+* Revenue, expenses, burn rate
+* Order volume & cancellation records
+* Customer behavior & transaction logs
+* Workforce & delivery partner metrics
+* Competitor benchmarking
+* Funding rounds & runway tracking
+
+## 🛠️ Tools & Technologies Used
+
+* **Excel / Python** – Data analysis
+* **SQL** – Data processing
+* **Power BI / Tableau** – Visualizations
+* **Analysis Type:** Failure Analysis & Root Cause Investigation
+
+## 🔍 Key Business Metrics (Highlights)
+
+* **Revenue:** ₹2,000 Cr peak → ₹0 Cr (shutdown)
+* **Money Burned:** ₹7,288.9 Cr
+* **Loss Per Order:** ₹6,079.44
+* **Cash Left:** 0.5 months
+* **Market Share:** 25% (2020) → 0% (2025)
+* **Delivery Success Rate:** 15% → 0%
+* **Delivery Partners:** 80,000 → 0
+* **Customer Churn:** 29.12%
+
+## 🧠 Key Insights & Findings
+
+### 1️⃣ Catastrophic Unit Economics Failure
+
+* Losing ₹6,079 per order due to high cost structures
+* Burned over ₹7,288.9 Cr without reaching profitability
+* Customer acquisition cost exceeded customer lifetime value
+
+### 2️⃣ Operational & Workforce Collapse
+
+* Delivery success fell to 0% by 2024
+* 45% rider churn → destroyed delivery capacity
+* Order cancellations mainly due to stockouts (35%) and rider unavailability (28%)
+
+### 3️⃣ Market Share Wipeout
+
+* Competitors took over:
+
+  * Swiggy Instamart: 52%
+  * Zepto: 25%
+  * Blinkit: 22%
+* Dunzo dropped to **0%** market share
+* Orders fell from 7M/month (2023) → 0 (mid-2024)
+* Investors stopped funding when unit economics didn’t improve
+
+## 🧩 Root Causes of Failure
+
+* Losing thousands per order with no path to profitability
+* High partner churn destroyed delivery reliability
+* Poor inventory planning leading to constant stock-outs
+* Competitors optimized faster and scaled sustainably
+
+## 🎓 Lessons Learned
+
+* Growth without profitability kills a business.
+* Delivery partner reliability is a survival factor.
+* CAC must be lower than CLV — Dunzo failed here.
+* Burning ₹7,288 Cr without fixing the business model is fatal.
+
+## 🧮 SQL Queries
+
+* Order volume & trend analysis
+* Cancellation rate breakdown
+* Partner churn & partner availability
+* Revenue vs cost vs profit per year
+* Customer retention analysis
+* Competitor share trends
+* Funding runway calculation
+
+## 📈 Visualizations
+
+* Yearly revenue vs burn
+* Delivery success decline
+* Customer churn trends
+* Partner availability metrics
+* Competitor market share
 
 
+## 🧾 Conclusion
 
-📌 Project Objective
+Dunzo collapsed because it scaled aggressively while losing massive money on every order. Operational failures, rider attrition, poor customer retention, and stronger competition accelerated the downfall. Even with major investors, the business model was simply not sustainable.
 
-Conduct a comprehensive failure analysis of Dunzo’s decline between 2018–2025—focusing on operational performance, financial health, customer churn, workforce challenges, and competitor takeover—to uncover key reasons behind the shutdown and extract insights for sustainable quick-commerce business models.
-
-
-🎯 Business Objectives
-
-Identify operational failure points and delivery inefficiencies
-
-Analyze financial burn rate, expenses & unit economics
-
-Evaluate delivery partner & workforce instability
-
-Understand customer churn patterns & market share loss
-
-Benchmark performance against competitors
-
-Derive lessons for future quick commerce businesses
-
-
-📂 Dataset Sources
-
-Delivery performance metrics (2018–2025)
-
-Revenue, expenses & burn-rate data
-
-Customer behaviour & transaction history
-
-Delivery partner & workforce metrics
-
-Competitor benchmarking & market share
-
-Order volume, cancellations & fulfilment records
-
-Investor funding & cash runway
-
-🛠 Tech Stack
-Category	Tools
-Data Processing	Excel, SQL, Python
-Visualization & BI	Power BI / Tableau
-Analytics Type	Failure Analysis, Root Cause Investigation
-📈 Key Metrics Overview
-Metric	Value
-Peak Revenue	₹2,000 Cr
-Total Money Burned	₹7,288.9 Cr
-Loss per Order	₹6,079.44
-Market Share	25% (2020) → 0% (2025)
-Delivery Success Rate	15% → 0%
-Delivery Partners	80,000 → 0
-Customer Churn Rate	29.12%
-🔍 Key Insights & Findings
-1. Unit Economics Collapse
-
-Lost ₹6,079 on every order due to inverted cost-to-revenue ratio
-
-Customer acquisition cost: ₹285–₹387 vs LTV: ₹239–₹342
-
-Massive burn of ₹7,288.9 Cr without profitability
-
-2. Workforce & Operational Breakdown
-
-Delivery success rate fell from 15% to 0%
-
-45% delivery partners quit due to payout & workload issues
-
-Major cancellation reasons:
-
-Out of stock: 35%
-
-Rider unavailability: 28%
-
-3. Competitive Market Takeover
-Competitor	Market Share
-Swiggy Instamart	52%
-Zepto	25%
-Blinkit	22%
-Dunzo	0%
-
-Monthly orders dropped from 7M per month (2023) to 0 by mid-2024
-
-Funding halted, left with 0.5 months cash runway
-
-🧠 Root Causes of Failure
-
-Unsustainable economics: scaling volume while losing money per order
-
-Delivery workforce collapse due to partner dissatisfaction
-
-Poor inventory & fulfilment systems leading to cancellations
-
-Dependence on investor funding, without profitability path
-
-🧾 Lessons Learned
-
-Growth without profitability is a short-term illusion
-
-Happy delivery partners = successful delivery business
-
-CAC must always be lower than LTV
-
-If investors stop funding, operational collapse is immediate
-
-🏁 Conclusion
-
-Dunzo’s shutdown highlights the consequences of prioritizing rapid expansion while ignoring profitability. Despite strong support from Reliance & Google, losing ₹6,000+ per order and burning ₹7,288 Cr led to bankruptcy. Within 18 months, Dunzo fell from 7M monthly orders to complete shutdown.
-
-Key Takeaway: Scaling fast only works when every order contributes positively to profit.
